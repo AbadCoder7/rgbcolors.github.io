@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>RGB Colors</title>
+   </head>
+   
+   <body id="body">
+      <div class="btmleftcont">
+         <p style="margin-left: 3%; margin-right: 2%;">R: </p>
+         <input type="number" id="r" name="red" min="0" max="255" value="255">
+         <p style="margin-left: 3%; margin-right: 2%;">G: </p>
+         <input type="number" id="g" name="green" min="0" max="255" value="255">
+         <p style="margin-left: 3%; margin-right: 2%;">B: </p>
+         <input type="number" id="b" name="blue" min="0" max="255" value="255" style="margin-right: 3%;">
+      </div>
+   </body>
+   
+   <style>
+      .btmleftcont {
+         width: 40%;
+         height: 8%;
+         position: fixed;
+         bottom: 0;
+         left: 0;
+         display: flex;
+         align-items: center;
+         background-color: white;
+      }
+   </style>
+   
+   <script>
+      var rI = document.getElementById("r");
+      var gI = document.getElementById("g");
+      var bI = document.getElementById("b");
+
+      rI.oninput = function() {
+         if (this.value <= 255 && this.value >= 0) {r = this.value;}
+         else {document.getElementById("r").value = '0';}
+      }
+      gI.oninput = function() {
+         if (this.value <= 255 && this.value >= 0) {g = this.value;}
+         else {document.getElementById("g").value = '0';}
+      }
+      bI.oninput = function() {
+         if (this.value <= 255 && this.value >= 0) {b = this.value;}
+         else {document.getElementById("b").value = '0';}
+      }
+      
+      var r = 255
+      var g = 255
+      var b = 255
+      
+      setInterval(function() {
+         document.getElementById('body').style.backgroundColor = "rgb("+r+", "+g+", "+b+")";
+      }, 1);
+   </script>
+</html>
